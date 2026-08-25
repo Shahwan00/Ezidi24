@@ -1,0 +1,2534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إحصائيات المجتمع الإيزيدي</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f1f5f2;
+    color:#222;
+}
+
+.container{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    padding:12px;
+}
+
+/* HEADER */
+
+.header{
+    background:white;
+    border-radius:18px;
+    padding:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:0 3px 15px rgba(0,0,0,.07);
+    margin-bottom:14px;
+}
+
+.logo{
+    font-size:30px;
+}
+
+.header-title{
+    flex:1;
+    text-align:center;
+}
+
+.header-title strong{
+    display:block;
+    color:#0a9b32;
+    font-size:19px;
+}
+
+.english{
+    direction:ltr;
+    display:block;
+    color:#888;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.home-btn{
+    border:0;
+    background:#eaf6ed;
+    color:#087c29;
+    padding:9px;
+    border-radius:10px;
+    font-size:18px;
+}
+
+/* INFO */
+
+.info{
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:14px;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.info-title{
+    color:#0a9b32;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.info p{
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:0;
+}
+
+/* TOTAL */
+
+.total-card{
+    background:#0a9b32;
+    color:white;
+    border-radius:22px;
+    padding:22px 15px;
+    text-align:center;
+    margin-bottom:14px;
+}
+
+.total-title{
+    font-size:16px;
+}
+
+.total-number{
+    font-size:52px;
+    font-weight:bold;
+    margin:5px 0;
+}
+
+.total-sub{
+    font-size:12px;
+}
+
+.gender-row{
+    display:flex;
+    gap:10px;
+    margin-top:17px;
+}
+
+.gender-card{
+    flex:1;
+    background:rgba(255,255,255,.16);
+    border-radius:13px;
+    padding:10px;
+}
+
+.gender-number{
+    display:block;
+    font-size:27px;
+    font-weight:bold;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+    width:100%;
+    border:0;
+    background:#0a9b32;
+    color:white;
+    padding:15px;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:bold;
+    margin-bottom:14px;
+}
+
+.add-btn.disabled{
+    background:#999;
+    cursor:not-allowed;
+}
+
+/* CARDS */
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:14px;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.card-title{
+    color:#0a9b32;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:11px 5px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+    font-size:12px;
+}
+
+th{
+    background:#eaf6ed;
+    color:#087c29;
+}
+
+th:first-child,
+td:first-child{
+    text-align:right;
+}
+
+.total-row{
+    background:#f3f3f3;
+    font-weight:bold;
+}
+
+/* REGIONS */
+
+.regions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.region{
+    background:#f8faf8;
+    border:1px solid #e1e7e2;
+    border-radius:15px;
+    padding:13px 5px;
+    text-align:center;
+}
+
+.flag{
+    font-size:28px;
+}
+
+.region-name{
+    font-weight:bold;
+    font-size:14px;
+    margin-top:5px;
+}
+
+.region-number{
+    color:#0a9b32;
+    font-size:25px;
+    font-weight:bold;
+    margin-top:6px;
+}
+
+/* FORM */
+
+#formSection{
+    display:none;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+select,input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:11px;
+    background:white;
+    font-size:14px;
+    margin-bottom:14px;
+}
+
+.submit-btn{
+    width:100%;
+    border:0;
+    background:#0a9b32;
+    color:white;
+    padding:14px;
+    border-radius:13px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.back-btn{
+    width:100%;
+    border:0;
+    background:#777;
+    color:white;
+    padding:12px;
+    border-radius:13px;
+    font-size:15px;
+    margin-top:8px;
+}
+
+/* CHILDREN */
+
+#childrenBox{
+    display:none;
+}
+
+.children-gender{
+    display:none;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+/* SUCCESS */
+
+#success{
+    display:none;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+}
+
+.success-icon{
+    font-size:45px;
+}
+
+.success-title{
+    color:#0a9b32;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.success-btn{
+    width:100%;
+    border:0;
+    background:#0a9b32;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:450px){
+
+    .regions{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .total-number{
+        font-size:46px;
+    }
+
+    th,td{
+        font-size:11px;
+        padding:9px 3px;
+    }
+
+}
+
+
+/* LANGUAGE SELECTOR - added without changing the existing design */
+.language-box{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-inline-start:6px;
+}
+.language-box select{
+    width:auto;
+    min-width:118px;
+    margin:0;
+    padding:7px 8px;
+    border:1px solid #d9e4dc;
+    border-radius:10px;
+    background:#f8fbf9;
+    color:#333;
+    font-size:11px;
+    cursor:pointer;
+}
+.language-box select:focus{outline:none;border-color:#0a9b32;}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<div id="homeSection">
+
+    <div class="header">
+
+<div class="language-box" title="Language">
+<select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Language">
+<option value="ar">العربية</option>
+<option value="en">English</option>
+<option value="de">Deutsch</option>
+<option value="ez">Êzdî</option>
+<option value="tr">Türkçe</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="it">Italiano</option>
+<option value="pt">Português</option>
+<option value="nl">Nederlands</option>
+<option value="ru">Русский</option>
+<option value="uk">Українська</option>
+<option value="pl">Polski</option>
+<option value="el">Ελληνικά</option>
+<option value="sv">Svenska</option>
+<option value="no">Norsk</option>
+<option value="da">Dansk</option>
+<option value="fi">Suomi</option>
+<option value="fa">فارسی</option>
+<option value="he">עברית</option>
+<option value="hi">हिन्दी</option>
+<option value="ur">اردو</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="hy">Հայերեն</option>
+<option value="ka">ქართული</option>
+</select>
+</div>
+
+
+        <div class="logo">
+            ☀️
+        </div>
+
+        <div class="header-title">
+
+            <strong>
+                إحصائيات المجتمع الإيزيدي
+            </strong>
+
+            <span class="english">
+                Yazidi Community Statistics
+            </span>
+
+        </div>
+
+        <button
+            class="home-btn"
+            onclick="showHome()">
+
+            🏠
+
+        </button>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="info">
+
+        <div class="info-title">
+
+            📋 الرجاء إدخال المعلومات بشكل صحيح
+
+            <span class="english">
+                Please enter the information correctly
+            </span>
+
+        </div>
+
+        <p>
+
+            لا نطلب الاسم أو رقم الهاتف أو أي معلومات شخصية.
+            الهدف هو حساب الإحصائيات فقط.
+
+            <span class="english">
+
+                No name, phone number or personal information
+                is required. Only statistics are collected.
+
+            </span>
+
+        </p>
+
+    </div>
+
+
+    <!-- TOTAL POPULATION -->
+
+    <div class="total-card">
+
+        <div class="total-title">
+
+            👥 المجموعة الكلية
+
+            <span class="english" style="color:white;">
+                Total Population
+            </span>
+
+        </div>
+
+        <div
+            class="total-number"
+            id="total">
+
+            0
+
+        </div>
+
+        <div class="total-sub">
+
+            شخص
+
+            <span class="english" style="color:white;">
+                People
+            </span>
+
+        </div>
+
+
+        <div class="gender-row">
+
+            <div class="gender-card">
+
+                👨
+
+                <span
+                    class="gender-number"
+                    id="maleTotal">
+
+                    0
+
+                </span>
+
+                ذكر
+
+                <span class="english" style="color:white;">
+                    Male
+                </span>
+
+            </div>
+
+
+            <div class="gender-card">
+
+                👩
+
+                <span
+                    class="gender-number"
+                    id="femaleTotal">
+
+                    0
+
+                </span>
+
+                أنثى
+
+                <span class="english" style="color:white;">
+                    Female
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADD -->
+
+    <button
+        id="addButton"
+        class="add-btn"
+        onclick="showForm()">
+
+        ➕ إضافة عائلة / شخص
+
+        <span style="font-size:11px;">
+            — Add Family / Person
+        </span>
+
+    </button>
+
+
+    <!-- AGE & GENDER -->
+
+    <div class="card">
+
+        <div class="card-title">
+
+            👨‍👩‍👧 العمر والجنس
+
+            <span class="english">
+                Age & Gender
+            </span>
+
+        </div>
+
+
+        <table>
+
+            <tr>
+
+                <th>الفئة</th>
+                <th>👨 ذكر</th>
+                <th>👩 أنثى</th>
+                <th>المجموع</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👶 أطفال
+
+                    <span class="english">
+                        Children
+                    </span>
+                </td>
+
+                <td id="childMale">0</td>
+                <td id="childFemale">0</td>
+                <td id="childTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    🧑 شباب
+
+                    <span class="english">
+                        Young
+                    </span>
+                </td>
+
+                <td id="youngMale">0</td>
+                <td id="youngFemale">0</td>
+                <td id="youngTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👨 رجال
+
+                    <span class="english">
+                        Men
+                    </span>
+                </td>
+
+                <td id="men">0</td>
+                <td>—</td>
+                <td id="menTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👩 نساء
+
+                    <span class="english">
+                        Women
+                    </span>
+                </td>
+
+                <td>—</td>
+                <td id="women">0</td>
+                <td id="womenTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👴 كبار السن
+
+                    <span class="english">
+                        Elderly
+                    </span>
+                </td>
+
+                <td id="oldMale">0</td>
+                <td id="oldFemale">0</td>
+                <td id="oldTotal">0</td>
+
+            </tr>
+
+
+            <tr class="total-row">
+
+                <td>
+                    المجموعة الكلية
+                </td>
+
+                <td id="tableMale">0</td>
+                <td id="tableFemale">0</td>
+                <td id="tableTotal">0</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- SHEIKH PIR MURID -->
+
+    <div class="card">
+
+        <div class="card-title">
+
+            👥 الشيخ والبِير والمريد
+
+            <span class="english">
+                Sheikh, Pir & Murid
+            </span>
+
+        </div>
+
+
+        <table>
+
+            <tr>
+
+                <th>المجموعة</th>
+                <th>👨 ذكر</th>
+                <th>👩 أنثى</th>
+                <th>👶 أطفال</th>
+                <th>👥 الكل</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    شيخ
+
+                    <span class="english">
+                        Sheikh
+                    </span>
+                </td>
+
+                <td id="sheikhMale">0</td>
+                <td id="sheikhFemale">0</td>
+                <td id="sheikhChildren">0</td>
+                <td id="sheikhTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    بير
+
+                    <span class="english">
+                        Pir
+                    </span>
+                </td>
+
+                <td id="pirMale">0</td>
+                <td id="pirFemale">0</td>
+                <td id="pirChildren">0</td>
+                <td id="pirTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    مريد
+
+                    <span class="english">
+                        Murid
+                    </span>
+                </td>
+
+                <td id="muridMale">0</td>
+                <td id="muridFemale">0</td>
+                <td id="muridChildren">0</td>
+                <td id="muridTotal">0</td>
+
+            </tr>
+
+
+            <tr class="total-row">
+
+                <td>
+                    المجموعة الكلية
+                </td>
+
+                <td id="classMale">0</td>
+                <td id="classFemale">0</td>
+                <td id="classChildren">0</td>
+                <td id="classTotal">0</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- CHILDREN -->
+
+    <div class="card">
+
+        <div class="card-title">
+
+            👶 الأطفال
+
+            <span class="english">
+                Children
+            </span>
+
+        </div>
+
+
+        <table>
+
+            <tr>
+
+                <th>الفئة</th>
+                <th>العدد</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👦 الأولاد
+
+                    <span class="english">
+                        Boys
+                    </span>
+                </td>
+
+                <td id="boysTotal">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    👧 البنات
+
+                    <span class="english">
+                        Girls
+                    </span>
+                </td>
+
+                <td id="girlsTotal">0</td>
+
+            </tr>
+
+
+            <tr class="total-row">
+
+                <td>
+                    👶 مجموع الأطفال
+
+                    <span class="english">
+                        Total Children
+                    </span>
+                </td>
+
+                <td id="childrenTotal">0</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- MARITAL -->
+
+    <div class="card">
+
+        <div class="card-title">
+
+            💍 الحالة الاجتماعية
+
+            <span class="english">
+                Marital Status
+            </span>
+
+        </div>
+
+
+        <table>
+
+            <tr>
+
+                <th>الحالة</th>
+                <th>العدد</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    متزوج
+
+                    <span class="english">
+                        Married Man
+                    </span>
+                </td>
+
+                <td id="marriedMale">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    متزوجة
+
+                    <span class="english">
+                        Married Woman
+                    </span>
+                </td>
+
+                <td id="marriedFemale">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    أعزب
+
+                    <span class="english">
+                        Single Man
+                    </span>
+                </td>
+
+                <td id="singleMale">0</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    عزباء
+
+                    <span class="english">
+                        Single Woman
+                    </span>
+                </td>
+
+                <td id="singleFemale">0</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- REGIONS -->
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🌍 السكان حسب المنطقة
+
+            <span class="english">
+                Population by Region
+            </span>
+
+        </div>
+
+
+        <div class="regions">
+
+
+            <div class="region">
+
+                <div class="flag">🇮🇶</div>
+
+                <div class="region-name">
+                    شنگال
+                </div>
+
+                <span class="english">
+                    Shingal
+                </span>
+
+                <div
+                    class="region-number"
+                    id="sinjar">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="region">
+
+                <div class="flag">🇸🇾</div>
+
+                <div class="region-name">
+                    سوريا
+                </div>
+
+                <span class="english">
+                    Syria
+                </span>
+
+                <div
+                    class="region-number"
+                    id="syria">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="region">
+
+                <div class="flag">🇬🇪</div>
+
+                <div class="region-name">
+                    جورجيا
+                </div>
+
+                <span class="english">
+                    Georgia
+                </span>
+
+                <div
+                    class="region-number"
+                    id="georgia">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="region">
+
+                <div class="flag">🇷🇺</div>
+
+                <div class="region-name">
+                    روسيا
+                </div>
+
+                <span class="english">
+                    Russia
+                </span>
+
+                <div
+                    class="region-number"
+                    id="russia">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="region">
+
+                <div class="flag">🇦🇲</div>
+
+                <div class="region-name">
+                    أرمينيا
+                </div>
+
+                <span class="english">
+                    Armenia
+                </span>
+
+                <div
+                    class="region-number"
+                    id="armenia">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="region">
+
+                <div class="flag">🇹🇷</div>
+
+                <div class="region-name">
+                    تركيا
+                </div>
+
+                <span class="english">
+                    Turkey
+                </span>
+
+                <div
+                    class="region-number"
+                    id="turkey">
+
+                    0
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     FORM
+================================================== -->
+
+<div id="formSection">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            ➕ إدخال المعلومات
+
+            <span class="english">
+                Enter Information
+            </span>
+
+        </div>
+
+
+        <label>
+
+            📍 المنطقة
+
+            <span class="english">
+                Region
+            </span>
+
+        </label>
+
+
+        <select id="region">
+
+            <option value="">
+                اختر المنطقة
+            </option>
+
+            <option value="sinjar">
+                🇮🇶 شنگال — Shingal
+            </option>
+
+            <option value="syria">
+                🇸🇾 سوريا — Syria
+            </option>
+
+            <option value="georgia">
+                🇬🇪 جورجيا — Georgia
+            </option>
+
+            <option value="russia">
+                🇷🇺 روسيا — Russia
+            </option>
+
+            <option value="armenia">
+                🇦🇲 أرمينيا — Armenia
+            </option>
+
+            <option value="turkey">
+                🇹🇷 تركيا — Turkey
+            </option>
+
+        </select>
+
+
+        <label>
+
+            👤 العمر والجنس
+
+            <span class="english">
+                Age & Gender
+            </span>
+
+        </label>
+
+
+        <select id="person">
+
+            <option value="">
+                اختر
+            </option>
+
+            <option value="childMale">
+                👦 طفل — Boy
+            </option>
+
+            <option value="childFemale">
+                👧 طفلة — Girl
+            </option>
+
+            <option value="youngMale">
+                🧑 شاب — Young Man
+            </option>
+
+            <option value="youngFemale">
+                🧑 شابة — Young Woman
+            </option>
+
+            <option value="man">
+                👨 رجل — Man
+            </option>
+
+            <option value="woman">
+                👩 امرأة — Woman
+            </option>
+
+            <option value="oldMale">
+                👴 كبير السن — Elderly Man
+            </option>
+
+            <option value="oldFemale">
+                👵 كبيرة السن — Elderly Woman
+            </option>
+
+        </select>
+
+
+        <label>
+
+            👥 الطبقة
+
+            <span class="english">
+                Social Class
+            </span>
+
+        </label>
+
+
+        <select id="classType">
+
+            <option value="">
+                اختر
+            </option>
+
+            <option value="sheikh">
+                شيخ — Sheikh
+            </option>
+
+            <option value="pir">
+                بير — Pir
+            </option>
+
+            <option value="murid">
+                مريد — Murid
+            </option>
+
+        </select>
+
+
+        <label>
+
+            💍 الحالة الاجتماعية
+
+            <span class="english">
+                Marital Status
+            </span>
+
+        </label>
+
+
+        <select
+            id="marital"
+            onchange="marriageChanged()">
+
+            <option value="">
+                اختر الحالة
+            </option>
+
+            <option value="marriedMale">
+                متزوج — Married Man
+            </option>
+
+            <option value="marriedFemale">
+                متزوجة — Married Woman
+            </option>
+
+            <option value="singleMale">
+                أعزب — Single Man
+            </option>
+
+            <option value="singleFemale">
+                عزباء — Single Woman
+            </option>
+
+        </select>
+
+
+        <!-- CHILDREN -->
+
+        <div id="childrenBox">
+
+            <label>
+
+                👶 عدد الأطفال
+
+                <span class="english">
+                    Number of Children
+                </span>
+
+            </label>
+
+
+            <select
+                id="children"
+                onchange="childrenChanged()">
+
+                <option value="">
+                    اختر العدد
+                </option>
+
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+
+            </select>
+
+
+            <div
+                class="children-gender"
+                id="childrenGender">
+
+                <div>
+
+                    <label>
+                        👦 الأولاد
+                    </label>
+
+                    <input
+                        type="number"
+                        id="boys"
+                        min="0"
+                        value="0">
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        👧 البنات
+                    </label>
+
+                    <input
+                        type="number"
+                        id="girls"
+                        min="0"
+                        value="0">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="submit-btn"
+            onclick="addFamily()">
+
+            ✅ موافق
+
+        </button>
+
+
+        <button
+            class="back-btn"
+            onclick="showHome()">
+
+            ↩️ رجوع
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     SUCCESS
+================================================== -->
+
+<div id="success">
+
+    <div class="success-icon">
+        ✅
+    </div>
+
+    <div class="success-title">
+
+        تم تسجيل مشاركتك
+
+    </div>
+
+    <p>
+
+        شكرًا لمساهمتك في الإحصائية.
+
+        <span class="english">
+            Thank you for contributing to the statistics.
+        </span>
+
+    </p>
+
+    <button
+        class="success-btn"
+        onclick="showHome()">
+
+        🏠 العودة إلى الإحصائية
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+/* =====================================================
+   MULTI-LANGUAGE SUPPORT
+   Added without changing the existing statistics logic.
+   ===================================================== */
+const I18N = {"ar":{"title":"إحصائيات المجتمع الإيزيدي","title2":"إحصائيات المجتمع الإيزيدي","welcome":"مرحبًا بك","desc":"يهدف هذا التطبيق إلى المساعدة في إعداد إحصائية عامة للمجتمع الإيزيدي. يرجى إدخال المعلومات بشكل صحيح ودقيق للمساعدة في الحصول على إحصائية أفضل.","notice":"📋 الرجاء اختيار المعلومات الصحيحة\nيرجى عدم إدخال أو اختيار معلومات غير صحيحة، لأن دقة الإحصائية تعتمد على صحة المعلومات.","enter":"دخول إلى الإحصائية","info":"📋 الرجاء إدخال المعلومات بشكل صحيح","noinfo":"لا نطلب الاسم أو رقم الهاتف أو أي معلومات شخصية. الهدف هو حساب الإحصائيات فقط.","total":"👥 المجموعة الكلية","people":"شخص","male":"ذكر","female":"أنثى","add":"➕ إضافة عائلة / شخص","age":"👨‍👩‍👧 العمر والجنس","category":"الفئة","children":"👶 أطفال","young":"🧑 شباب","men":"👨 رجال","women":"👩 نساء","elderly":"👴 كبار السن","groupTotal":"المجموعة الكلية","class":"👥 الشيخ والبِير والمريد","group":"المجموعة","kids":"👶 أطفال","sheikh":"شيخ","pir":"بير","murid":"مريد","childSection":"👶 الأطفال","boys":"👦 الأولاد","girls":"👧 البنات","totalChildren":"👶 مجموع الأطفال","marital":"💍 الحالة الاجتماعية","status":"الحالة","marriedM":"متزوج","marriedF":"متزوجة","singleM":"أعزب","singleF":"عزباء","regions":"🌍 السكان حسب المنطقة","region":"📍 المنطقة","chooseRegion":"اختر المنطقة","choose":"اختر","person":"👤 العمر والجنس","classType":"👥 الطبقة","maritalLabel":"💍 الحالة الاجتماعية","chooseStatus":"اختر الحالة","childrenNum":"👶 عدد الأطفال","chooseNumber":"اختر العدد","submit":"✅ موافق","back":"↩️ رجوع","success":"تم تسجيل مشاركتك","thanks":"شكرًا لمساهمتك في الإحصائية.","home":"🏠 العودة إلى الإحصائية","footer":"تم التطوير بواسطة Ezzat 73 & Shahwan"},"en":{"title":"Yazidi Community Statistics","title2":"Yazidi Population Statistics","welcome":"Welcome","desc":"This application helps prepare general statistics for the Yazidi community. Please enter accurate information to improve the statistics.","notice":"📋 Please select the correct information\nDo not enter or select false information, because statistical accuracy depends on correct information.","enter":"Enter Statistics","info":"📋 Please enter the information correctly","noinfo":"No name, phone number or personal information is required. The goal is only to calculate statistics.","total":"👥 Total Population","people":"People","male":"Male","female":"Female","add":"➕ Add Family / Person","age":"👨‍👩‍👧 Age & Gender","category":"Category","children":"👶 Children","young":"🧑 Young","men":"👨 Men","women":"👩 Women","elderly":"👴 Elderly","groupTotal":"Total","class":"👥 Sheikh, Pir & Murid","group":"Group","kids":"👶 Children","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Children","boys":"👦 Boys","girls":"👧 Girls","totalChildren":"👶 Total Children","marital":"💍 Marital Status","status":"Status","marriedM":"Married Man","marriedF":"Married Woman","singleM":"Single Man","singleF":"Single Woman","regions":"🌍 Population by Region","region":"📍 Region","chooseRegion":"Choose region","choose":"Choose","person":"👤 Age & Gender","classType":"👥 Social Class","maritalLabel":"💍 Marital Status","chooseStatus":"Choose status","childrenNum":"👶 Number of Children","chooseNumber":"Choose number","submit":"✅ Confirm","back":"↩️ Back","success":"Your participation was recorded","thanks":"Thank you for contributing to the statistics.","home":"🏠 Back to Statistics","footer":"Developed by Ezzat 73 & Shahwan"},"de":{"title":"Statistik der Êzîdischen Gemeinschaft","title2":"Bevölkerungsstatistik der Êzîden","welcome":"Willkommen","desc":"Diese Anwendung hilft bei der Erstellung einer allgemeinen Statistik der êzîdischen Gemeinschaft. Bitte geben Sie die Informationen korrekt und genau ein.","notice":"📋 Bitte die richtigen Angaben auswählen\nBitte keine falschen Angaben eingeben oder auswählen, da die Genauigkeit von korrekten Angaben abhängt.","enter":"Statistik öffnen","info":"📋 Bitte Informationen korrekt eingeben","noinfo":"Name, Telefonnummer oder persönliche Daten werden nicht benötigt. Es werden nur Statistiken erfasst.","total":"👥 Gesamtbevölkerung","people":"Personen","male":"Männlich","female":"Weiblich","add":"➕ Familie / Person hinzufügen","age":"👨‍👩‍👧 Alter & Geschlecht","category":"Kategorie","children":"👶 Kinder","young":"🧑 Jugendliche","men":"👨 Männer","women":"👩 Frauen","elderly":"👴 Ältere","groupTotal":"Gesamt","class":"👥 Şêx, Pîr & Murîd","group":"Gruppe","kids":"👶 Kinder","sheikh":"Şêx","pir":"Pîr","murid":"Murîd","childSection":"👶 Kinder","boys":"👦 Jungen","girls":"👧 Mädchen","totalChildren":"👶 Kinder gesamt","marital":"💍 Familienstand","status":"Status","marriedM":"Verheirateter Mann","marriedF":"Verheiratete Frau","singleM":"Lediger Mann","singleF":"Ledige Frau","regions":"🌍 Bevölkerung nach Region","region":"📍 Region","chooseRegion":"Region auswählen","choose":"Auswählen","person":"👤 Alter & Geschlecht","classType":"👥 Gesellschaftliche Klasse","maritalLabel":"💍 Familienstand","chooseStatus":"Status auswählen","childrenNum":"👶 Anzahl der Kinder","chooseNumber":"Anzahl auswählen","submit":"✅ Bestätigen","back":"↩️ Zurück","success":"Teilnahme gespeichert","thanks":"Vielen Dank für Ihren Beitrag zur Statistik.","home":"🏠 Zurück zur Statistik","footer":"Entwickelt von Ezzat 73 & Shahwan"},"tr":{"title":"Ezidi Topluluğu İstatistikleri","title2":"Ezidi Nüfus İstatistikleri","welcome":"Hoş geldiniz","desc":"Bu uygulama Ezidi topluluğu hakkında genel istatistikler hazırlamaya yardımcı olur. Lütfen doğru ve eksiksiz bilgi girin.","notice":"📋 Lütfen doğru bilgileri seçin\nYanlış bilgi girmeyin veya seçmeyin; istatistiklerin doğruluğu doğru bilgilere bağlıdır.","enter":"İstatistiklere Gir","info":"📋 Lütfen bilgileri doğru girin","noinfo":"Ad, telefon numarası veya kişisel bilgi istenmez. Yalnızca istatistikler toplanır.","total":"👥 Toplam Nüfus","people":"Kişi","male":"Erkek","female":"Kadın","add":"➕ Aile / Kişi Ekle","age":"👨‍👩‍👧 Yaş ve Cinsiyet","category":"Kategori","children":"👶 Çocuklar","young":"🧑 Gençler","men":"👨 Erkekler","women":"👩 Kadınlar","elderly":"👴 Yaşlılar","groupTotal":"Toplam","class":"👥 Şeyh, Pir ve Mürid","group":"Grup","kids":"👶 Çocuklar","sheikh":"Şeyh","pir":"Pir","murid":"Mürid","childSection":"👶 Çocuklar","boys":"👦 Erkek çocuklar","girls":"👧 Kız çocuklar","totalChildren":"👶 Toplam çocuk","marital":"💍 Medeni Durum","status":"Durum","marriedM":"Evli erkek","marriedF":"Evli kadın","singleM":"Bekâr erkek","singleF":"Bekâr kadın","regions":"🌍 Bölgeye Göre Nüfus","region":"📍 Bölge","chooseRegion":"Bölge seçin","choose":"Seçin","person":"👤 Yaş ve Cinsiyet","classType":"👥 Sosyal Sınıf","maritalLabel":"💍 Medeni Durum","chooseStatus":"Durum seçin","childrenNum":"👶 Çocuk sayısı","chooseNumber":"Sayı seçin","submit":"✅ Onayla","back":"↩️ Geri","success":"Katılımınız kaydedildi","thanks":"İstatistiklere katkınız için teşekkürler.","home":"🏠 İstatistiklere dön","footer":"Geliştiren: Ezzat 73 & Shahwan"},"fr":{"title":"Statistiques de la communauté yézidie","title2":"Statistiques de la population yézidie","welcome":"Bienvenue","desc":"Cette application aide à préparer des statistiques générales de la communauté yézidie. Veuillez saisir des informations exactes.","notice":"📋 Veuillez sélectionner les bonnes informations\nN’entrez pas de fausses informations, car la précision dépend de données correctes.","enter":"Accéder aux statistiques","info":"📋 Veuillez saisir correctement les informations","noinfo":"Aucun nom, numéro de téléphone ou renseignement personnel n’est demandé. Seules les statistiques sont collectées.","total":"👥 Population totale","people":"Personnes","male":"Homme","female":"Femme","add":"➕ Ajouter une famille / personne","age":"👨‍👩‍👧 Âge et sexe","category":"Catégorie","children":"👶 Enfants","young":"🧑 Jeunes","men":"👨 Hommes","women":"👩 Femmes","elderly":"👴 Personnes âgées","groupTotal":"Total","class":"👥 Sheikh, Pir et Murid","group":"Groupe","kids":"👶 Enfants","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Enfants","boys":"👦 Garçons","girls":"👧 Filles","totalChildren":"👶 Total des enfants","marital":"💍 État civil","status":"État","marriedM":"Homme marié","marriedF":"Femme mariée","singleM":"Homme célibataire","singleF":"Femme célibataire","regions":"🌍 Population par région","region":"📍 Région","chooseRegion":"Choisir une région","choose":"Choisir","person":"👤 Âge et sexe","classType":"👥 Classe sociale","maritalLabel":"💍 État civil","chooseStatus":"Choisir l’état","childrenNum":"👶 Nombre d’enfants","chooseNumber":"Choisir le nombre","submit":"✅ Confirmer","back":"↩️ Retour","success":"Participation enregistrée","thanks":"Merci pour votre contribution aux statistiques.","home":"🏠 Retour aux statistiques","footer":"Développé par Ezzat 73 & Shahwan"},"es":{"title":"Estadísticas de la comunidad yazidí","title2":"Estadísticas de población yazidí","welcome":"Bienvenido","enter":"Entrar en estadísticas","total":"👥 Población total","people":"Personas","male":"Hombre","female":"Mujer","add":"➕ Añadir familia / persona","age":"👨‍👩‍👧 Edad y género","children":"👶 Niños","young":"🧑 Jóvenes","men":"👨 Hombres","women":"👩 Mujeres","elderly":"👴 Mayores","class":"👥 Sheikh, Pir y Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Niños","boys":"👦 Niños","girls":"👧 Niñas","marital":"💍 Estado civil","marriedM":"Hombre casado","marriedF":"Mujer casada","singleM":"Hombre soltero","singleF":"Mujer soltera","regions":"🌍 Población por región","region":"📍 Región","chooseRegion":"Elegir región","choose":"Elegir","submit":"✅ Confirmar","back":"↩️ Atrás","success":"Participación registrada","thanks":"Gracias por contribuir a las estadísticas.","home":"🏠 Volver a las estadísticas","footer":"Desarrollado por Ezzat 73 & Shahwan"},"it":{"title":"Statistiche della comunità yazida","title2":"Statistiche della popolazione yazida","welcome":"Benvenuto","enter":"Entra nelle statistiche","total":"👥 Popolazione totale","people":"Persone","male":"Uomo","female":"Donna","add":"➕ Aggiungi famiglia / persona","age":"👨‍👩‍👧 Età e genere","children":"👶 Bambini","young":"🧑 Giovani","men":"👨 Uomini","women":"👩 Donne","elderly":"👴 Anziani","class":"👥 Sheikh, Pir e Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Bambini","boys":"👦 Ragazzi","girls":"👧 Ragazze","marital":"💍 Stato civile","marriedM":"Uomo sposato","marriedF":"Donna sposata","singleM":"Uomo single","singleF":"Donna single","regions":"🌍 Popolazione per regione","region":"📍 Regione","chooseRegion":"Scegli regione","choose":"Scegli","submit":"✅ Conferma","back":"↩️ Indietro","success":"Partecipazione registrata","thanks":"Grazie per il contributo alle statistiche.","home":"🏠 Torna alle statistiche","footer":"Sviluppato da Ezzat 73 & Shahwan"},"pt":{"title":"Estatísticas da comunidade yazidi","title2":"Estatísticas da população yazidi","welcome":"Bem-vindo","enter":"Entrar nas estatísticas","total":"👥 População total","people":"Pessoas","male":"Homem","female":"Mulher","add":"➕ Adicionar família / pessoa","age":"👨‍👩‍👧 Idade e género","children":"👶 Crianças","young":"🧑 Jovens","men":"👨 Homens","women":"👩 Mulheres","elderly":"👴 Idosos","class":"👥 Sheikh, Pir e Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Crianças","boys":"👦 Meninos","girls":"👧 Meninas","marital":"💍 Estado civil","marriedM":"Homem casado","marriedF":"Mulher casada","singleM":"Homem solteiro","singleF":"Mulher solteira","regions":"🌍 População por região","region":"📍 Região","chooseRegion":"Escolher região","choose":"Escolher","submit":"✅ Confirmar","back":"↩️ Voltar","success":"Participação registada","thanks":"Obrigado pela sua contribuição.","home":"🏠 Voltar às estatísticas","footer":"Desenvolvido por Ezzat 73 & Shahwan"},"ru":{"title":"Статистика езидской общины","title2":"Статистика населения езидов","welcome":"Добро пожаловать","enter":"Войти в статистику","total":"👥 Общая численность","people":"Человек","male":"Мужчины","female":"Женщины","add":"➕ Добавить семью / человека","age":"👨‍👩‍👧 Возраст и пол","children":"👶 Дети","young":"🧑 Молодёжь","men":"👨 Мужчины","women":"👩 Женщины","elderly":"👴 Пожилые","class":"👥 Шейх, Пир и Мурид","sheikh":"Шейх","pir":"Пир","murid":"Мурид","childSection":"👶 Дети","boys":"👦 Мальчики","girls":"👧 Девочки","marital":"💍 Семейное положение","marriedM":"Женат","marriedF":"Замужем","singleM":"Холост","singleF":"Не замужем","regions":"🌍 Население по регионам","region":"📍 Регион","chooseRegion":"Выберите регион","choose":"Выберите","submit":"✅ Подтвердить","back":"↩️ Назад","success":"Участие сохранено","thanks":"Спасибо за вклад в статистику.","home":"🏠 Вернуться к статистике","footer":"Разработано Ezzat 73 & Shahwan"},"ku":{"title":"Statîstîkên civaka Êzidî","title2":"Statîstîkên nifûsa Êzidiyan","welcome":"Bi xêr hatî","enter":"Têkeve nav statîstîkan","total":"👥 Hemû nifûs","people":"Kes","male":"Mêr","female":"Jin","add":"➕ Malbat / kes zêde bike","age":"👨‍👩‍👧 Temen û zayend","children":"👶 Zarok","young":"🧑 Ciwan","men":"👨 Mêr","women":"👩 Jin","elderly":"👴 Kal û pîr","class":"👥 Şêx, Pîr û Mird","sheikh":"Şêx","pir":"Pîr","murid":"Mird","childSection":"👶 Zarok","boys":"👦 Kur","girls":"👧 Keç","marital":"💍 Rewşa zewacê","marriedM":"Mêrê zewicî","marriedF":"Jina zewicî","singleM":"Mêrê nezewicî","singleF":"Jina nezewicî","regions":"🌍 Nifûs li gorî herêmê","region":"📍 Herêm","chooseRegion":"Herêmê hilbijêre","choose":"Hilbijêre","submit":"✅ Pejirand","back":"↩️ Vegere","success":"Beşdariya te hat tomar kirin","thanks":"Spas ji bo beşdariya te di statîstîkê de.","home":"🏠 Vegere statîstîkê","footer":"Ji aliyê Ezzat 73 & Shahwan ve hat pêşdebirin"},"ez":{"title":"Statîstîkên Civata Êzdî","title2":"Statîstîkên Nifûsa Êzdiyan","welcome":"Bi xêr hatî","enter":"Têkeve nav Statîstîkan","total":"👥 Hemû Nifûs","people":"Kes","male":"Mêr","female":"Jin","add":"➕ Malbat / Kes Zêde Bike","age":"👨‍👩‍👧 Temen û Zayend","children":"👶 Zarok","young":"🧑 Ciwan","men":"👨 Mêr","women":"👩 Jin","elderly":"👴 Kal û Pîr","class":"👥 Şêx, Pîr û Mird","sheikh":"Şêx","pir":"Pîr","murid":"Mird","childSection":"👶 Zarok","boys":"👦 Kur","girls":"👧 Keç","marital":"💍 Rewşa Zewacê","marriedM":"Mêrê Zewicî","marriedF":"Jina Zewicî","singleM":"Mêrê Nezewicî","singleF":"Jina Nezewicî","regions":"🌍 Nifûs Li Gorî Herêmê","region":"📍 Herêm","chooseRegion":"Herêmê Hilbijêre","choose":"Hilbijêre","submit":"✅ Pejirand","back":"↩️ Vegere","success":"Beşdariya Te Hat Tomar Kirin","thanks":"Spas Ji Bo Beşdariya Te Di Statîstîkê De.","home":"🏠 Vegere Statîstîkê","footer":"Pêşvebirin ji aliyê Ezzat 73 & Shahwan ve"},"nl":{"title":"Statistieken van de Yazidi-gemeenschap","title2":"Yazidi-bevolkingsstatistieken","welcome":"Welkom","enter":"Statistieken openen","footer":"Ontwikkeld door Ezzat 73 & Shahwan"},"uk":{"title":"Статистика єзидської громади","title2":"Статистика населення єзидів","welcome":"Ласкаво просимо","enter":"Увійти до статистики","footer":"Розроблено Ezzat 73 & Shahwan"},"pl":{"title":"Statystyki społeczności jezydzkiej","title2":"Statystyki ludności Jezydów","welcome":"Witamy","enter":"Wejdź do statystyk","footer":"Opracowane przez Ezzat 73 & Shahwan"},"el":{"title":"Στατιστικά της κοινότητας των Γιαζίντι","title2":"Στατιστικά πληθυσμού Γιαζίντι","welcome":"Καλώς ήρθατε","enter":"Είσοδος στα στατιστικά","footer":"Αναπτύχθηκε από Ezzat 73 & Shahwan"},"sv":{"title":"Statistik för yazidiska samfundet","title2":"Yazidisk befolkningsstatistik","welcome":"Välkommen","enter":"Öppna statistik","footer":"Utvecklad av Ezzat 73 & Shahwan"},"no":{"title":"Statistikk for det yazidiske samfunnet","title2":"Yazidisk befolkningsstatistikk","welcome":"Velkommen","enter":"Gå til statistikk","footer":"Utviklet av Ezzat 73 & Shahwan"},"da":{"title":"Statistik for det yazidiske samfund","title2":"Yazidisk befolkningsstatistik","welcome":"Velkommen","enter":"Gå til statistik","footer":"Udviklet af Ezzat 73 & Shahwan"},"fi":{"title":"Jeezidiyhteisön tilastot","title2":"Jeezidiväestön tilastot","welcome":"Tervetuloa","enter":"Avaa tilastot","footer":"Kehittänyt Ezzat 73 & Shahwan"},"fa":{"title":"آمار جامعه ایزدی","title2":"آمار جمعیت ایزدی","welcome":"خوش آمدید","enter":"ورود به آمار","footer":"توسعه داده شده توسط Ezzat 73 & Shahwan"},"he":{"title":"סטטיסטיקות הקהילה היזידית","title2":"סטטיסטיקות אוכלוסיית היזידים","welcome":"ברוכים הבאים","enter":"כניסה לסטטיסטיקה","footer":"פותח על ידי Ezzat 73 & Shahwan"},"hi":{"title":"यज़ीदी समुदाय के आँकड़े","title2":"यज़ीदी जनसंख्या आँकड़े","welcome":"स्वागत है","enter":"आँकड़ों में प्रवेश करें","footer":"Ezzat 73 & Shahwan द्वारा विकसित"},"ur":{"title":"ایزیدی برادری کے اعداد و شمار","title2":"ایزیدی آبادی کے اعداد و شمار","welcome":"خوش آمدید","enter":"اعداد و شمار میں داخل ہوں","footer":"Ezzat 73 & Shahwan کی جانب سے تیار کردہ"},"zh":{"title":"雅兹迪社区统计","title2":"雅兹迪人口统计","welcome":"欢迎","enter":"进入统计","footer":"由 Ezzat 73 & Shahwan 开发"},"ja":{"title":"ヤジディ教徒コミュニティ統計","title2":"ヤジディ人口統計","welcome":"ようこそ","enter":"統計を見る","footer":"Ezzat 73 & Shahwan 開発"},"ko":{"title":"야지디 공동체 통계","title2":"야지디 인구 통계","welcome":"환영합니다","enter":"통계 보기","footer":"Ezzat 73 & Shahwan 개발"},"hy":{"title":"Եզդիական համայնքի վիճակագրություն","title2":"Եզդիների բնակչության վիճակագրություն","welcome":"Բարի գալուստ","enter":"Մուտք վիճակագրություն","footer":"Մշակվել է Ezzat 73 & Shahwan-ի կողմից"},"ka":{"title":"იეზიდთა თემის სტატისტიკა","title2":"იეზიდთა მოსახლეობის სტატისტიკა","welcome":"კეთილი იყოს თქვენი მობრძანება","enter":"სტატისტიკაში შესვლა","footer":"შემუშავებულია Ezzat 73 & Shahwan-ის მიერ"}};
+
+const EN = I18N.en;
+function T(lang,key){
+    return (I18N[lang] && I18N[lang][key]) || EN[key] || key;
+}
+function setLangText(el,key,lang){
+    const value=T(lang,key);
+    if(value) el.textContent=value;
+}
+function applyLanguage(lang){
+    if(!I18N[lang]) lang="en";
+    localStorage.setItem("yazidiLanguage",lang);
+    const rtl=["ar","fa","he","ur","ez","ku"].includes(lang);
+    document.documentElement.lang=lang;
+    document.documentElement.dir=rtl ? "rtl" : "ltr";
+    const sel=document.getElementById("languageSelect");
+    if(sel) sel.value=lang;
+
+    const map={
+      "footer":"footer"
+    };
+    Object.keys(map).forEach(id=>{
+      const e=document.querySelector('[data-i18n="'+id+'"]');
+      if(e) e.textContent=T(lang,map[id]);
+    });
+
+    // Visible text nodes/labels are translated by stable semantic matching.
+    const pairs=[
+      [".header-title strong","title"],[".info-title","info"],[".total-title","total"],
+      [".total-sub","people"],[".card-title","age"],["#addButton","add"],
+      [".success-title","success"],["#success p","thanks"],[".success-btn","home"],
+      [".submit-btn","submit"],[".back-btn","back"]
+    ];
+    pairs.forEach(([s,k])=>{
+      const e=document.querySelector(s);
+      if(e) {
+        const en=e.querySelector(".english");
+        if(en) {
+          // Keep the existing bilingual visual structure.
+          e.childNodes.forEach(n=>{if(n.nodeType===3 && n.textContent.trim()) n.textContent=" "+T(lang,k)+" ";});
+        } else e.textContent=T(lang,k);
+      }
+    });
+
+    const title=document.querySelector(".header-title .english");
+    if(title) title.textContent = T(lang,"title2");
+
+    // Table headings and common labels.
+    const textMap={
+      "الفئة":"category","المجموعة":"group","المجموع":"groupTotal","ذكر":"male","أنثى":"female",
+      "👶 أطفال":"children","🧑 شباب":"young","👨 رجال":"men","👩 نساء":"women","👴 كبار السن":"elderly",
+      "شيخ":"sheikh","بير":"pir","مريد":"murid","👦 الأولاد":"boys","👧 البنات":"girls",
+      "👶 مجموع الأطفال":"totalChildren","الحالة":"status","متزوج":"marriedM","متزوجة":"marriedF",
+      "أعزب":"singleM","عزباء":"singleF"
+    };
+    document.querySelectorAll("th,td,label,.region-name").forEach(el=>{
+      const clone=el.cloneNode(true);
+      clone.querySelectorAll(".english").forEach(x=>x.remove());
+      const raw=clone.textContent.trim();
+      if(textMap[raw]) {
+        const en=el.querySelector(".english");
+        if(en){
+          el.childNodes.forEach(n=>{if(n.nodeType===3 && n.textContent.trim()) n.textContent=" "+T(lang,textMap[raw])+" ";});
+        } else el.textContent=T(lang,textMap[raw]);
+      }
+    });
+
+    // Form labels/placeholders.
+    const labels=[["📍 المنطقة","region"],["👤 العمر والجنس","person"],["👥 الطبقة","classType"],
+                  ["💍 الحالة الاجتماعية","maritalLabel"],["👶 عدد الأطفال","childrenNum"]];
+    document.querySelectorAll("label").forEach(el=>{
+      const c=el.cloneNode(true); c.querySelectorAll(".english").forEach(x=>x.remove());
+      const raw=c.textContent.trim();
+      const found=labels.find(x=>raw===x[0]);
+      if(found){
+        const en=el.querySelector(".english");
+        if(en){el.childNodes.forEach(n=>{if(n.nodeType===3&&n.textContent.trim())n.textContent=" "+T(lang,found[1])+" ";});}
+        else el.textContent=T(lang,found[1]);
+      }
+    });
+
+    // Select options.
+    const optionMap={
+      "اختر المنطقة":"chooseRegion","اختر":"choose","اختر الحالة":"chooseStatus","اختر العدد":"chooseNumber",
+      "👦 طفل — Boy":"children","👧 طفلة — Girl":"children","🧑 شاب — Young Man":"young",
+      "🧑 شابة — Young Woman":"young","👨 رجل — Man":"men","👩 امرأة — Woman":"women",
+      "👴 كبير السن — Elderly Man":"elderly","👵 كبيرة السن — Elderly Woman":"elderly",
+      "شيخ — Sheikh":"sheikh","بير — Pir":"pir","مريد — Murid":"murid",
+      "متزوج — Married Man":"marriedM","متزوجة — Married Woman":"marriedF",
+      "أعزب — Single Man":"singleM","عزباء — Single Woman":"singleF"
+    };
+    document.querySelectorAll("option").forEach(o=>{
+      const raw=o.textContent.trim();
+      if(optionMap[raw]) o.textContent=T(lang,optionMap[raw]);
+    });
+}
+function changeLanguage(lang){ applyLanguage(lang); }
+document.addEventListener("DOMContentLoaded",()=>{
+  applyLanguage(localStorage.getItem("yazidiLanguage")||"ar");
+});
+</script>
+
+<script>
+
+/* =====================================================
+   البيانات المحفوظة
+===================================================== */
+
+let data = JSON.parse(
+    localStorage.getItem("yazidiData")
+) || {
+
+    total:0,
+
+    male:0,
+    female:0,
+
+    childMale:0,
+    childFemale:0,
+
+    youngMale:0,
+    youngFemale:0,
+
+    men:0,
+    women:0,
+
+    oldMale:0,
+    oldFemale:0,
+
+    boys:0,
+    girls:0,
+
+    sheikhMale:0,
+    sheikhFemale:0,
+    sheikhChildren:0,
+
+    pirMale:0,
+    pirFemale:0,
+    pirChildren:0,
+
+    muridMale:0,
+    muridFemale:0,
+    muridChildren:0,
+
+    marriedMale:0,
+    marriedFemale:0,
+
+    singleMale:0,
+    singleFemale:0,
+
+    sinjar:0,
+    syria:0,
+    georgia:0,
+    russia:0,
+    armenia:0,
+    turkey:0
+};
+
+
+/* هل الشخص سجل من قبل؟ */
+
+let alreadySubmitted =
+    localStorage.getItem("yazidiSubmitted") === "true";
+
+
+/* =====================================================
+   الصفحة الرئيسية
+===================================================== */
+
+function showHome(){
+
+    document.getElementById("homeSection")
+        .style.display="block";
+
+    document.getElementById("formSection")
+        .style.display="none";
+
+    document.getElementById("success")
+        .style.display="none";
+}
+
+
+/* =====================================================
+   فتح نموذج الإدخال
+===================================================== */
+
+function showForm(){
+
+    if(alreadySubmitted){
+
+        alert(
+            "لقد سجلت مشاركتك مسبقاً. لا يمكنك التسجيل مرة ثانية."
+        );
+
+        return;
+    }
+
+
+    document.getElementById("homeSection")
+        .style.display="none";
+
+    document.getElementById("success")
+        .style.display="none";
+
+    document.getElementById("formSection")
+        .style.display="block";
+}
+
+
+/* =====================================================
+   الزواج
+===================================================== */
+
+function marriageChanged(){
+
+    let value =
+        document.getElementById("marital").value;
+
+
+    if(
+        value === "marriedMale" ||
+        value === "marriedFemale"
+    ){
+
+        document.getElementById("childrenBox")
+            .style.display="block";
+
+    }else{
+
+        document.getElementById("childrenBox")
+            .style.display="none";
+
+        document.getElementById("childrenGender")
+            .style.display="none";
+    }
+}
+
+
+/* =====================================================
+   الأطفال
+===================================================== */
+
+function childrenChanged(){
+
+    let number =
+        Number(
+            document.getElementById("children").value
+        );
+
+
+    if(number > 0){
+
+        document.getElementById("childrenGender")
+            .style.display="grid";
+
+    }else{
+
+        document.getElementById("childrenGender")
+            .style.display="none";
+    }
+}
+
+
+/* =====================================================
+   إضافة الشخص
+===================================================== */
+
+function addFamily(){
+
+
+    /* حماية إضافية */
+
+    if(alreadySubmitted){
+
+        alert(
+            "لقد سجلت مشاركتك مسبقاً."
+        );
+
+        return;
+    }
+
+
+    let region =
+        document.getElementById("region").value;
+
+    let person =
+        document.getElementById("person").value;
+
+    let classType =
+        document.getElementById("classType").value;
+
+    let marital =
+        document.getElementById("marital").value;
+
+
+    if(
+        region === "" ||
+        person === "" ||
+        classType === "" ||
+        marital === ""
+    ){
+
+        alert(
+            "يرجى اختيار جميع المعلومات."
+        );
+
+        return;
+    }
+
+
+    /* الجنس */
+
+    let male =
+        person === "childMale" ||
+        person === "youngMale" ||
+        person === "man" ||
+        person === "oldMale";
+
+
+    let female =
+        person === "childFemale" ||
+        person === "youngFemale" ||
+        person === "woman" ||
+        person === "oldFemale";
+
+
+    /* الأطفال */
+
+    let children = 0;
+    let boys = 0;
+    let girls = 0;
+
+
+    if(
+        marital === "marriedMale" ||
+        marital === "marriedFemale"
+    ){
+
+        let childrenValue =
+            document.getElementById("children").value;
+
+
+        if(childrenValue === ""){
+
+            alert(
+                "اختر عدد الأطفال."
+            );
+
+            return;
+        }
+
+
+        children =
+            Number(childrenValue);
+
+
+        boys =
+            Number(
+                document.getElementById("boys").value
+            );
+
+
+        girls =
+            Number(
+                document.getElementById("girls").value
+            );
+
+
+        if(boys + girls !== children){
+
+            alert(
+                "عدد الأولاد والبنات يجب أن يساوي عدد الأطفال."
+            );
+
+            return;
+        }
+    }
+
+
+    /* =================================================
+       الشخص نفسه
+    ================================================= */
+
+    data.total++;
+
+
+    if(male)
+        data.male++;
+
+
+    if(female)
+        data.female++;
+
+
+    /* العمر */
+
+    if(person === "childMale")
+        data.childMale++;
+
+
+    if(person === "childFemale")
+        data.childFemale++;
+
+
+    if(person === "youngMale")
+        data.youngMale++;
+
+
+    if(person === "youngFemale")
+        data.youngFemale++;
+
+
+    if(person === "man")
+        data.men++;
+
+
+    if(person === "woman")
+        data.women++;
+
+
+    if(person === "oldMale")
+        data.oldMale++;
+
+
+    if(person === "oldFemale")
+        data.oldFemale++;
+
+
+    /* =================================================
+       الأطفال أيضاً أشخاص
+    ================================================= */
+
+    data.total += children;
+
+    data.male += boys;
+
+    data.female += girls;
+
+
+    data.childMale += boys;
+
+    data.childFemale += girls;
+
+    data.boys += boys;
+
+    data.girls += girls;
+
+
+    /* =================================================
+       المنطقة
+    ================================================= */
+
+    data[region] += 1 + children;
+
+
+    /* =================================================
+       الحالة الاجتماعية
+    ================================================= */
+
+    if(marital === "marriedMale")
+        data.marriedMale++;
+
+
+    if(marital === "marriedFemale")
+        data.marriedFemale++;
+
+
+    if(marital === "singleMale")
+        data.singleMale++;
+
+
+    if(marital === "singleFemale")
+        data.singleFemale++;
+
+
+    /* =================================================
+       الشيخ
+    ================================================= */
+
+    if(classType === "sheikh"){
+
+        if(male)
+            data.sheikhMale++;
+
+        if(female)
+            data.sheikhFemale++;
+
+        data.sheikhChildren += children;
+    }
+
+
+    /* =================================================
+       البير
+    ================================================= */
+
+    if(classType === "pir"){
+
+        if(male)
+            data.pirMale++;
+
+        if(female)
+            data.pirFemale++;
+
+        data.pirChildren += children;
+    }
+
+
+    /* =================================================
+       المريد
+    ================================================= */
+
+    if(classType === "murid"){
+
+        if(male)
+            data.muridMale++;
+
+        if(female)
+            data.muridFemale++;
+
+        data.muridChildren += children;
+    }
+
+
+    /* =================================================
+       حفظ البيانات
+    ================================================= */
+
+    localStorage.setItem(
+        "yazidiData",
+        JSON.stringify(data)
+    );
+
+
+    /* منع التسجيل الثاني */
+
+    localStorage.setItem(
+        "yazidiSubmitted",
+        "true"
+    );
+
+
+    alreadySubmitted = true;
+
+
+    /* تحديث */
+
+    update();
+
+
+    /* إخفاء النموذج */
+
+    document.getElementById("formSection")
+        .style.display="none";
+
+
+    /* إظهار النجاح */
+
+    document.getElementById("success")
+        .style.display="block";
+
+
+    /* تغيير زر الإضافة */
+
+    lockAddButton();
+
+
+    /* تنظيف النموذج */
+
+    document.getElementById("region").value="";
+
+    document.getElementById("person").value="";
+
+    document.getElementById("classType").value="";
+
+    document.getElementById("marital").value="";
+
+    document.getElementById("children").value="";
+
+    document.getElementById("boys").value="0";
+
+    document.getElementById("girls").value="0";
+
+    document.getElementById("childrenBox")
+        .style.display="none";
+
+    document.getElementById("childrenGender")
+        .style.display="none";
+}
+
+
+/* =====================================================
+   قفل زر التسجيل
+===================================================== */
+
+function lockAddButton(){
+
+    let button =
+        document.getElementById("addButton");
+
+
+    button.classList.add("disabled");
+
+    button.innerHTML =
+        "✅ تم تسجيل مشاركتك<br>" +
+        "<span style='font-size:11px;'>You have already participated</span>";
+
+    button.onclick = function(){
+
+        alert(
+            "تم تسجيل مشاركتك مسبقاً ولا يمكنك التسجيل مرة ثانية."
+        );
+
+    };
+}
+
+
+/* =====================================================
+   تحديث الإحصائيات
+===================================================== */
+
+function update(){
+
+
+    /* المجموعة الكلية */
+
+    set("total",data.total);
+
+    set("maleTotal",data.male);
+
+    set("femaleTotal",data.female);
+
+
+    /* العمر */
+
+    set("childMale",data.childMale);
+
+    set("childFemale",data.childFemale);
+
+    set(
+        "childTotal",
+        data.childMale + data.childFemale
+    );
+
+
+    set("youngMale",data.youngMale);
+
+    set("youngFemale",data.youngFemale);
+
+    set(
+        "youngTotal",
+        data.youngMale + data.youngFemale
+    );
+
+
+    set("men",data.men);
+
+    set("menTotal",data.men);
+
+
+    set("women",data.women);
+
+    set("womenTotal",data.women);
+
+
+    set("oldMale",data.oldMale);
+
+    set("oldFemale",data.oldFemale);
+
+    set(
+        "oldTotal",
+        data.oldMale + data.oldFemale
+    );
+
+
+    /* الإجمالي */
+
+    set("tableMale",data.male);
+
+    set("tableFemale",data.female);
+
+    set("tableTotal",data.total);
+
+
+    /* =================================================
+       الشيخ
+    ================================================= */
+
+    let sheikhTotal =
+        data.sheikhMale +
+        data.sheikhFemale +
+        data.sheikhChildren;
+
+
+    set(
+        "sheikhMale",
+        data.sheikhMale
+    );
+
+    set(
+        "sheikhFemale",
+        data.sheikhFemale
+    );
+
+    set(
+        "sheikhChildren",
+        data.sheikhChildren
+    );
+
+    set(
+        "sheikhTotal",
+        sheikhTotal
+    );
+
+
+    /* =================================================
+       بير
+    ================================================= */
+
+    let pirTotal =
+        data.pirMale +
+        data.pirFemale +
+        data.pirChildren;
+
+
+    set(
+        "pirMale",
+        data.pirMale
+    );
+
+    set(
+        "pirFemale",
+        data.pirFemale
+    );
+
+    set(
+        "pirChildren",
+        data.pirChildren
+    );
+
+    set(
+        "pirTotal",
+        pirTotal
+    );
+
+
+    /* =================================================
+       مريد
+    ================================================= */
+
+    let mridTotal =
+        data.mridMale +
+        data.mridFemale +
+        data.mridChildren;
+
+
+    set(
+        "muridMale",
+        data.muridMale
+    );
+
+    set(
+        "muridFemale",
+        data.muridFemale
+    );
+
+    set(
+        "muridChildren",
+        data.muridChildren
+    );
+
+    set(
+        "muridTotal",
+        muridTotal
+    );
+
+
+    /* إجمالي الطبقات */
+
+    set(
+        "classMale",
+        data.sheikhMale +
+        data.pirMale +
+        data.muridMale
+    );
+
+
+    set(
+        "classFemale",
+        data.sheikhFemale +
+        data.pirFemale +
+        data.muridFemale
+    );
+
+
+    set(
+        "classChildren",
+        data.sheikhChildren +
+        data.pirChildren +
+        data.muridChildren
+    );
+
+
+    set(
+        "classTotal",
+
+        data.sheikhMale +
+        data.sheikhFemale +
+        data.sheikhChildren +
+
+        data.pirMale +
+        data.pirFemale +
+        data.pirChildren +
+
+        data.muridMale +
+        data.muridFemale +
+        data.muridChildren
+    );
+
+
+    /* الأطفال */
+
+    set(
+        "boysTotal",
+        data.boys
+    );
+
+    set(
+        "girlsTotal",
+        data.girls
+    );
+
+    set(
+        "childrenTotal",
+        data.boys + data.girls
+    );
+
+
+    /* الزواج */
+
+    set(
+        "marriedMale",
+        data.marriedMale
+    );
+
+    set(
+        "marriedFemale",
+        data.marriedFemale
+    );
+
+    set(
+        "singleMale",
+        data.singleMale
+    );
+
+    set(
+        "singleFemale",
+        data.singleFemale
+    );
+
+
+    /* المناطق */
+
+    set("sinjar",data.sinjar);
+
+    set("syria",data.syria);
+
+    set("georgia",data.georgia);
+
+    set("russia",data.russia);
+
+    set("armenia",data.armenia);
+
+    set("turkey",data.turkey);
+}
+
+
+/* =====================================================
+   وضع الرقم
+===================================================== */
+
+function set(id,value){
+
+    let element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.textContent = value;
+    }
+}
+
+
+/* =====================================================
+   عند فتح التطبيق
+===================================================== */
+
+update();
+
+
+if(alreadySubmitted){
+
+    lockAddButton();
+
+}
+
+</script>
+
+
+<script>
+/* Global language layer: translates all application UI text, headings,
+   labels, buttons, table cells, options, placeholders and messages. */
+(function(){
+  const LANG = {"ar":{"title":"إحصائيات المجتمع الإيزيدي","title2":"إحصائيات المجتمع الإيزيدي","welcome":"مرحبًا بك","desc":"يهدف هذا التطبيق إلى المساعدة في إعداد إحصائية عامة للمجتمع الإيزيدي. يرجى إدخال المعلومات بشكل صحيح ودقيق للمساعدة في الحصول على إحصائية أفضل.","notice":"📋 الرجاء اختيار المعلومات الصحيحة\nيرجى عدم إدخال أو اختيار معلومات غير صحيحة، لأن دقة الإحصائية تعتمد على صحة المعلومات.","enter":"دخول إلى الإحصائية","info":"📋 الرجاء إدخال المعلومات بشكل صحيح","noinfo":"لا نطلب الاسم أو رقم الهاتف أو أي معلومات شخصية. الهدف هو حساب الإحصائيات فقط.","total":"👥 المجموعة الكلية","people":"شخص","male":"ذكر","female":"أنثى","add":"➕ إضافة عائلة / شخص","age":"👨‍👩‍👧 العمر والجنس","category":"الفئة","children":"👶 أطفال","young":"🧑 شباب","men":"👨 رجال","women":"👩 نساء","elderly":"👴 كبار السن","groupTotal":"المجموعة الكلية","class":"👥 الشيخ والبِير والمريد","group":"المجموعة","kids":"👶 أطفال","sheikh":"شيخ","pir":"بير","murid":"مريد","childSection":"👶 الأطفال","boys":"👦 الأولاد","girls":"👧 البنات","totalChildren":"👶 مجموع الأطفال","marital":"💍 الحالة الاجتماعية","status":"الحالة","marriedM":"متزوج","marriedF":"متزوجة","singleM":"أعزب","singleF":"عزباء","regions":"🌍 السكان حسب المنطقة","region":"📍 المنطقة","chooseRegion":"اختر المنطقة","choose":"اختر","person":"👤 العمر والجنس","classType":"👥 الطبقة","maritalLabel":"💍 الحالة الاجتماعية","chooseStatus":"اختر الحالة","childrenNum":"👶 عدد الأطفال","chooseNumber":"اختر العدد","submit":"✅ موافق","back":"↩️ رجوع","success":"تم تسجيل مشاركتك","thanks":"شكرًا لمساهمتك في الإحصائية.","home":"🏠 العودة إلى الإحصائية","footer":"تم التطوير بواسطة Ezzat 73 & Shahwan"},"en":{"title":"Yazidi Community Statistics","title2":"Yazidi Population Statistics","welcome":"Welcome","desc":"This application helps prepare general statistics for the Yazidi community. Please enter accurate information to improve the statistics.","notice":"📋 Please select the correct information\nDo not enter or select false information, because statistical accuracy depends on correct information.","enter":"Enter Statistics","info":"📋 Please enter the information correctly","noinfo":"No name, phone number or personal information is required. The goal is only to calculate statistics.","total":"👥 Total Population","people":"People","male":"Male","female":"Female","add":"➕ Add Family / Person","age":"👨‍👩‍👧 Age & Gender","category":"Category","children":"👶 Children","young":"🧑 Young","men":"👨 Men","women":"👩 Women","elderly":"👴 Elderly","groupTotal":"Total","class":"👥 Sheikh, Pir & Murid","group":"Group","kids":"👶 Children","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Children","boys":"👦 Boys","girls":"👧 Girls","totalChildren":"👶 Total Children","marital":"💍 Marital Status","status":"Status","marriedM":"Married Man","marriedF":"Married Woman","singleM":"Single Man","singleF":"Single Woman","regions":"🌍 Population by Region","region":"📍 Region","chooseRegion":"Choose region","choose":"Choose","person":"👤 Age & Gender","classType":"👥 Social Class","maritalLabel":"💍 Marital Status","chooseStatus":"Choose status","childrenNum":"👶 Number of Children","chooseNumber":"Choose number","submit":"✅ Confirm","back":"↩️ Back","success":"Your participation was recorded","thanks":"Thank you for contributing to the statistics.","home":"🏠 Back to Statistics","footer":"Developed by Ezzat 73 & Shahwan"},"de":{"title":"Statistik der Êzîdischen Gemeinschaft","title2":"Bevölkerungsstatistik der Êzîden","welcome":"Willkommen","desc":"Diese Anwendung hilft bei der Erstellung einer allgemeinen Statistik der êzîdischen Gemeinschaft. Bitte geben Sie die Informationen korrekt und genau ein.","notice":"📋 Bitte die richtigen Angaben auswählen\nBitte keine falschen Angaben eingeben oder auswählen, da die Genauigkeit von korrekten Angaben abhängt.","enter":"Statistik öffnen","info":"📋 Bitte Informationen korrekt eingeben","noinfo":"Name, Telefonnummer oder persönliche Daten werden nicht benötigt. Es werden nur Statistiken erfasst.","total":"👥 Gesamtbevölkerung","people":"Personen","male":"Männlich","female":"Weiblich","add":"➕ Familie / Person hinzufügen","age":"👨‍👩‍👧 Alter & Geschlecht","category":"Kategorie","children":"👶 Kinder","young":"🧑 Jugendliche","men":"👨 Männer","women":"👩 Frauen","elderly":"👴 Ältere","groupTotal":"Gesamt","class":"👥 Şêx, Pîr & Murîd","group":"Gruppe","kids":"👶 Kinder","sheikh":"Şêx","pir":"Pîr","murid":"Murîd","childSection":"👶 Kinder","boys":"👦 Jungen","girls":"👧 Mädchen","totalChildren":"👶 Kinder gesamt","marital":"💍 Familienstand","status":"Status","marriedM":"Verheirateter Mann","marriedF":"Verheiratete Frau","singleM":"Lediger Mann","singleF":"Ledige Frau","regions":"🌍 Bevölkerung nach Region","region":"📍 Region","chooseRegion":"Region auswählen","choose":"Auswählen","person":"👤 Alter & Geschlecht","classType":"👥 Gesellschaftliche Klasse","maritalLabel":"💍 Familienstand","chooseStatus":"Status auswählen","childrenNum":"👶 Anzahl der Kinder","chooseNumber":"Anzahl auswählen","submit":"✅ Bestätigen","back":"↩️ Zurück","success":"Teilnahme gespeichert","thanks":"Vielen Dank für Ihren Beitrag zur Statistik.","home":"🏠 Zurück zur Statistik","footer":"Entwickelt von Ezzat 73 & Shahwan"},"tr":{"title":"Ezidi Topluluğu İstatistikleri","title2":"Ezidi Nüfus İstatistikleri","welcome":"Hoş geldiniz","desc":"Bu uygulama Ezidi topluluğu hakkında genel istatistikler hazırlamaya yardımcı olur. Lütfen doğru ve eksiksiz bilgi girin.","notice":"📋 Lütfen doğru bilgileri seçin\nYanlış bilgi girmeyin veya seçmeyin; istatistiklerin doğruluğu doğru bilgilere bağlıdır.","enter":"İstatistiklere Gir","info":"📋 Lütfen bilgileri doğru girin","noinfo":"Ad, telefon numarası veya kişisel bilgi istenmez. Yalnızca istatistikler toplanır.","total":"👥 Toplam Nüfus","people":"Kişi","male":"Erkek","female":"Kadın","add":"➕ Aile / Kişi Ekle","age":"👨‍👩‍👧 Yaş ve Cinsiyet","category":"Kategori","children":"👶 Çocuklar","young":"🧑 Gençler","men":"👨 Erkekler","women":"👩 Kadınlar","elderly":"👴 Yaşlılar","groupTotal":"Toplam","class":"👥 Şeyh, Pir ve Mürid","group":"Grup","kids":"👶 Çocuklar","sheikh":"Şeyh","pir":"Pir","murid":"Mürid","childSection":"👶 Çocuklar","boys":"👦 Erkek çocuklar","girls":"👧 Kız çocuklar","totalChildren":"👶 Toplam çocuk","marital":"💍 Medeni Durum","status":"Durum","marriedM":"Evli erkek","marriedF":"Evli kadın","singleM":"Bekâr erkek","singleF":"Bekâr kadın","regions":"🌍 Bölgeye Göre Nüfus","region":"📍 Bölge","chooseRegion":"Bölge seçin","choose":"Seçin","person":"👤 Yaş ve Cinsiyet","classType":"👥 Sosyal Sınıf","maritalLabel":"💍 Medeni Durum","chooseStatus":"Durum seçin","childrenNum":"👶 Çocuk sayısı","chooseNumber":"Sayı seçin","submit":"✅ Onayla","back":"↩️ Geri","success":"Katılımınız kaydedildi","thanks":"İstatistiklere katkınız için teşekkürler.","home":"🏠 İstatistiklere dön","footer":"Geliştiren: Ezzat 73 & Shahwan"},"fr":{"title":"Statistiques de la communauté yézidie","title2":"Statistiques de la population yézidie","welcome":"Bienvenue","desc":"Cette application aide à préparer des statistiques générales de la communauté yézidie. Veuillez saisir des informations exactes.","notice":"📋 Veuillez sélectionner les bonnes informations\nN’entrez pas de fausses informations, car la précision dépend de données correctes.","enter":"Accéder aux statistiques","info":"📋 Veuillez saisir correctement les informations","noinfo":"Aucun nom, numéro de téléphone ou renseignement personnel n’est demandé. Seules les statistiques sont collectées.","total":"👥 Population totale","people":"Personnes","male":"Homme","female":"Femme","add":"➕ Ajouter une famille / personne","age":"👨‍👩‍👧 Âge et sexe","category":"Catégorie","children":"👶 Enfants","young":"🧑 Jeunes","men":"👨 Hommes","women":"👩 Femmes","elderly":"👴 Personnes âgées","groupTotal":"Total","class":"👥 Sheikh, Pir et Murid","group":"Groupe","kids":"👶 Enfants","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Enfants","boys":"👦 Garçons","girls":"👧 Filles","totalChildren":"👶 Total des enfants","marital":"💍 État civil","status":"État","marriedM":"Homme marié","marriedF":"Femme mariée","singleM":"Homme célibataire","singleF":"Femme célibataire","regions":"🌍 Population par région","region":"📍 Région","chooseRegion":"Choisir une région","choose":"Choisir","person":"👤 Âge et sexe","classType":"👥 Classe sociale","maritalLabel":"💍 État civil","chooseStatus":"Choisir l’état","childrenNum":"👶 Nombre d’enfants","chooseNumber":"Choisir le nombre","submit":"✅ Confirmer","back":"↩️ Retour","success":"Participation enregistrée","thanks":"Merci pour votre contribution aux statistiques.","home":"🏠 Retour aux statistiques","footer":"Développé par Ezzat 73 & Shahwan"},"es":{"title":"Estadísticas de la comunidad yazidí","title2":"Estadísticas de población yazidí","welcome":"Bienvenido","enter":"Entrar en estadísticas","total":"👥 Población total","people":"Personas","male":"Hombre","female":"Mujer","add":"➕ Añadir familia / persona","age":"👨‍👩‍👧 Edad y género","children":"👶 Niños","young":"🧑 Jóvenes","men":"👨 Hombres","women":"👩 Mujeres","elderly":"👴 Mayores","class":"👥 Sheikh, Pir y Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Niños","boys":"👦 Niños","girls":"👧 Niñas","marital":"💍 Estado civil","marriedM":"Hombre casado","marriedF":"Mujer casada","singleM":"Hombre soltero","singleF":"Mujer soltera","regions":"🌍 Población por región","region":"📍 Región","chooseRegion":"Elegir región","choose":"Elegir","submit":"✅ Confirmar","back":"↩️ Atrás","success":"Participación registrada","thanks":"Gracias por contribuir a las estadísticas.","home":"🏠 Volver a las estadísticas","footer":"Desarrollado por Ezzat 73 & Shahwan"},"it":{"title":"Statistiche della comunità yazida","title2":"Statistiche della popolazione yazida","welcome":"Benvenuto","enter":"Entra nelle statistiche","total":"👥 Popolazione totale","people":"Persone","male":"Uomo","female":"Donna","add":"➕ Aggiungi famiglia / persona","age":"👨‍👩‍👧 Età e genere","children":"👶 Bambini","young":"🧑 Giovani","men":"👨 Uomini","women":"👩 Donne","elderly":"👴 Anziani","class":"👥 Sheikh, Pir e Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Bambini","boys":"👦 Ragazzi","girls":"👧 Ragazze","marital":"💍 Stato civile","marriedM":"Uomo sposato","marriedF":"Donna sposata","singleM":"Uomo single","singleF":"Donna single","regions":"🌍 Popolazione per regione","region":"📍 Regione","chooseRegion":"Scegli regione","choose":"Scegli","submit":"✅ Conferma","back":"↩️ Indietro","success":"Partecipazione registrata","thanks":"Grazie per il contributo alle statistiche.","home":"🏠 Torna alle statistiche","footer":"Sviluppato da Ezzat 73 & Shahwan"},"pt":{"title":"Estatísticas da comunidade yazidi","title2":"Estatísticas da população yazidi","welcome":"Bem-vindo","enter":"Entrar nas estatísticas","total":"👥 População total","people":"Pessoas","male":"Homem","female":"Mulher","add":"➕ Adicionar família / pessoa","age":"👨‍👩‍👧 Idade e género","children":"👶 Crianças","young":"🧑 Jovens","men":"👨 Homens","women":"👩 Mulheres","elderly":"👴 Idosos","class":"👥 Sheikh, Pir e Murid","sheikh":"Sheikh","pir":"Pir","murid":"Murid","childSection":"👶 Crianças","boys":"👦 Meninos","girls":"👧 Meninas","marital":"💍 Estado civil","marriedM":"Homem casado","marriedF":"Mulher casada","singleM":"Homem solteiro","singleF":"Mulher solteira","regions":"🌍 População por região","region":"📍 Região","chooseRegion":"Escolher região","choose":"Escolher","submit":"✅ Confirmar","back":"↩️ Voltar","success":"Participação registada","thanks":"Obrigado pela sua contribuição.","home":"🏠 Voltar às estatísticas","footer":"Desenvolvido por Ezzat 73 & Shahwan"},"ru":{"title":"Статистика езидской общины","title2":"Статистика населения езидов","welcome":"Добро пожаловать","enter":"Войти в статистику","total":"👥 Общая численность","people":"Человек","male":"Мужчины","female":"Женщины","add":"➕ Добавить семью / человека","age":"👨‍👩‍👧 Возраст и пол","children":"👶 Дети","young":"🧑 Молодёжь","men":"👨 Мужчины","women":"👩 Женщины","elderly":"👴 Пожилые","class":"👥 Шейх, Пир и Мурид","sheikh":"Шейх","pir":"Пир","murid":"Мурид","childSection":"👶 Дети","boys":"👦 Мальчики","girls":"👧 Девочки","marital":"💍 Семейное положение","marriedM":"Женат","marriedF":"Замужем","singleM":"Холост","singleF":"Не замужем","regions":"🌍 Население по регионам","region":"📍 Регион","chooseRegion":"Выберите регион","choose":"Выберите","submit":"✅ Подтвердить","back":"↩️ Назад","success":"Участие сохранено","thanks":"Спасибо за вклад в статистику.","home":"🏠 Вернуться к статистике","footer":"Разработано Ezzat 73 & Shahwan"},"ku":{"title":"Statîstîkên civaka Êzidî","title2":"Statîstîkên nifûsa Êzidiyan","welcome":"Bi xêr hatî","enter":"Têkeve nav statîstîkan","total":"👥 Hemû nifûs","people":"Kes","male":"Mêr","female":"Jin","add":"➕ Malbat / kes zêde bike","age":"👨‍👩‍👧 Temen û zayend","children":"👶 Zarok","young":"🧑 Ciwan","men":"👨 Mêr","women":"👩 Jin","elderly":"👴 Kal û pîr","class":"👥 Şêx, Pîr û Mird","sheikh":"Şêx","pir":"Pîr","murid":"Mird","childSection":"👶 Zarok","boys":"👦 Kur","girls":"👧 Keç","marital":"💍 Rewşa zewacê","marriedM":"Mêrê zewicî","marriedF":"Jina zewicî","singleM":"Mêrê nezewicî","singleF":"Jina nezewicî","regions":"🌍 Nifûs li gorî herêmê","region":"📍 Herêm","chooseRegion":"Herêmê hilbijêre","choose":"Hilbijêre","submit":"✅ Pejirand","back":"↩️ Vegere","success":"Beşdariya te hat tomar kirin","thanks":"Spas ji bo beşdariya te di statîstîkê de.","home":"🏠 Vegere statîstîkê","footer":"Ji aliyê Ezzat 73 & Shahwan ve hat pêşdebirin"},"ez":{"title":"Statîstîkên Civata Êzdî","title2":"Statîstîkên Nifûsa Êzdiyan","welcome":"Bi xêr hatî","enter":"Têkeve nav Statîstîkan","total":"👥 Hemû Nifûs","people":"Kes","male":"Mêr","female":"Jin","add":"➕ Malbat / Kes Zêde Bike","age":"👨‍👩‍👧 Temen û Zayend","children":"👶 Zarok","young":"🧑 Ciwan","men":"👨 Mêr","women":"👩 Jin","elderly":"👴 Kal û Pîr","class":"👥 Şêx, Pîr û Mird","sheikh":"Şêx","pir":"Pîr","murid":"Mird","childSection":"👶 Zarok","boys":"👦 Kur","girls":"👧 Keç","marital":"💍 Rewşa Zewacê","marriedM":"Mêrê Zewicî","marriedF":"Jina Zewicî","singleM":"Mêrê Nezewicî","singleF":"Jina Nezewicî","regions":"🌍 Nifûs Li Gorî Herêmê","region":"📍 Herêm","chooseRegion":"Herêmê Hilbijêre","choose":"Hilbijêre","submit":"✅ Pejirand","back":"↩️ Vegere","success":"Beşdariya Te Hat Tomar Kirin","thanks":"Spas Ji Bo Beşdariya Te Di Statîstîkê De.","home":"🏠 Vegere Statîstîkê","footer":"Pêşvebirin ji aliyê Ezzat 73 & Shahwan ve"},"nl":{"title":"Statistieken van de Yazidi-gemeenschap","title2":"Yazidi-bevolkingsstatistieken","welcome":"Welkom","enter":"Statistieken openen","footer":"Ontwikkeld door Ezzat 73 & Shahwan"},"uk":{"title":"Статистика єзидської громади","title2":"Статистика населення єзидів","welcome":"Ласкаво просимо","enter":"Увійти до статистики","footer":"Розроблено Ezzat 73 & Shahwan"},"pl":{"title":"Statystyki społeczności jezydzkiej","title2":"Statystyki ludności Jezydów","welcome":"Witamy","enter":"Wejdź do statystyk","footer":"Opracowane przez Ezzat 73 & Shahwan"},"el":{"title":"Στατιστικά της κοινότητας των Γιαζίντι","title2":"Στατιστικά πληθυσμού Γιαζίντι","welcome":"Καλώς ήρθατε","enter":"Είσοδος στα στατιστικά","footer":"Αναπτύχθηκε από Ezzat 73 & Shahwan"},"sv":{"title":"Statistik för yazidiska samfundet","title2":"Yazidisk befolkningsstatistik","welcome":"Välkommen","enter":"Öppna statistik","footer":"Utvecklad av Ezzat 73 & Shahwan"},"no":{"title":"Statistikk for det yazidiske samfunnet","title2":"Yazidisk befolkningsstatistikk","welcome":"Velkommen","enter":"Gå til statistikk","footer":"Utviklet av Ezzat 73 & Shahwan"},"da":{"title":"Statistik for det yazidiske samfund","title2":"Yazidisk befolkningsstatistik","welcome":"Velkommen","enter":"Gå til statistik","footer":"Udviklet af Ezzat 73 & Shahwan"},"fi":{"title":"Jeezidiyhteisön tilastot","title2":"Jeezidiväestön tilastot","welcome":"Tervetuloa","enter":"Avaa tilastot","footer":"Kehittänyt Ezzat 73 & Shahwan"},"fa":{"title":"آمار جامعه ایزدی","title2":"آمار جمعیت ایزدی","welcome":"خوش آمدید","enter":"ورود به آمار","footer":"توسعه داده شده توسط Ezzat 73 & Shahwan"},"he":{"title":"סטטיסטיקות הקהילה היזידית","title2":"סטטיסטיקות אוכלוסיית היזידים","welcome":"ברוכים הבאים","enter":"כניסה לסטטיסטיקה","footer":"פותח על ידי Ezzat 73 & Shahwan"},"hi":{"title":"यज़ीदी समुदाय के आँकड़े","title2":"यज़ीदी जनसंख्या आँकड़े","welcome":"स्वागत है","enter":"आँकड़ों में प्रवेश करें","footer":"Ezzat 73 & Shahwan द्वारा विकसित"},"ur":{"title":"ایزیدی برادری کے اعداد و شمار","title2":"ایزیدی آبادی کے اعداد و شمار","welcome":"خوش آمدید","enter":"اعداد و شمار میں داخل ہوں","footer":"Ezzat 73 & Shahwan کی جانب سے تیار کردہ"},"zh":{"title":"雅兹迪社区统计","title2":"雅兹迪人口统计","welcome":"欢迎","enter":"进入统计","footer":"由 Ezzat 73 & Shahwan 开发"},"ja":{"title":"ヤジディ教徒コミュニティ統計","title2":"ヤジディ人口統計","welcome":"ようこそ","enter":"統計を見る","footer":"Ezzat 73 & Shahwan 開発"},"ko":{"title":"야지디 공동체 통계","title2":"야지디 인구 통계","welcome":"환영합니다","enter":"통계 보기","footer":"Ezzat 73 & Shahwan 개발"},"hy":{"title":"Եզդիական համայնքի վիճակագրություն","title2":"Եզդիների բնակչության վիճակագրություն","welcome":"Բարի գալուստ","enter":"Մուտք վիճակագրություն","footer":"Մշակվել է Ezzat 73 & Shahwan-ի կողմից"},"ka":{"title":"იეზიდთა თემის სტატისტიკა","title2":"იეზიდთა მოსახლეობის სტატისტიკა","welcome":"კეთილი იყოს თქვენი მობრძანება","enter":"სტატისტიკაში შესვლა","footer":"შემუშავებულია Ezzat 73 & Shahwan-ის მიერ"}};
+  const FALLBACK = LANG.en || {};
+
+  function tr(lang, key){
+    return (LANG[lang] && LANG[lang][key]) || FALLBACK[key] || key;
+  }
+
+  // Build a reverse dictionary from every translation currently known.
+  function buildReverse(lang){
+    const reverse = {};
+    const pack = LANG[lang] || FALLBACK;
+    Object.keys(pack).forEach(k => {
+      const v = String(pack[k] || "").trim();
+      if(v) reverse[v] = k;
+      // Also map each line of multiline values.
+      v.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(x=>reverse[x]=k);
+    });
+    return reverse;
+  }
+
+  function cleanText(s){
+    return String(s||"").replace(/\s+/g," ").trim();
+  }
+
+  function translateNode(node, lang, reverse){
+    if(node.nodeType === Node.TEXT_NODE){
+      const raw = cleanText(node.nodeValue);
+      if(!raw) return;
+
+      // Exact match.
+      let key = reverse[raw];
+
+      // Match common original Arabic UI text.
+      if(!key){
+        const known = {
+          "إحصائيات المجتمع الإيزيدي":"title",
+          "إحصائيات المجتمع الإيزيدي":"title",
+          "Yazidi Population Statistics":"title2",
+          "مرحبًا بك":"welcome",
+          "دخول إلى الإحصائية":"enter",
+          "Enter Statistics":"enter",
+          "إضافة عائلة / شخص":"add",
+          "المجموعة الكلية":"groupTotal",
+          "ذكر":"male","أنثى":"female",
+          " أطفال":"children","🧑 شباب":"young"," رجال":"men"," نساء":"women"," كبار السن":"elderly",
+          "شيخ":"sheikh","بير":"pir","مريد":"murid",
+          "الأولاد":"boys","البنات":"girls",
+          "الحالة الاجتماعية":"maritalLabel","الحالة":"status",
+          "متزوج":"marriedM","متزوجة":"marriedF","أعزب":"singleM","عزباء":"singleF",
+          "المنطقة":"region","اختر المنطقة":"chooseRegion","اختر":"choose",
+          "موافق":"submit","رجوع":"back"
+        };
+        key = known[raw];
+      }
+
+      if(key){
+        const old = node.nodeValue;
+        const leading = old.match(/^\s*/)?.[0] || "";
+        const trailing = old.match(/\s*$/)?.[0] || "";
+        node.nodeValue = leading + tr(lang,key) + trailing;
+      }
+      return;
+    }
+    if(node.nodeType !== Node.ELEMENT_NODE) return;
+
+    // Never alter script/style/select language control internals.
+    if(["SCRIPT","STYLE"].includes(node.tagName)) return;
+    if(node.id === "languageSelect") return;
+
+    // Translate attributes.
+    ["placeholder","title","aria-label"].forEach(attr=>{
+      if(node.hasAttribute(attr)){
+        const value=cleanText(node.getAttribute(attr));
+        const key=reverse[value];
+        if(key) node.setAttribute(attr,tr(lang,key));
+      }
+    });
+
+    Array.from(node.childNodes).forEach(n=>translateNode(n,lang,reverse));
+  }
+
+  window.applyAllLanguages = function(lang){
+    if(!LANG[lang]) lang="en";
+    localStorage.setItem("yazidiLanguage",lang);
+
+    const rtl=["ar","fa","he","ur","ez"].includes(lang);
+    document.documentElement.lang=lang;
+    document.documentElement.dir=rtl ? "rtl" : "ltr";
+
+    const select=document.getElementById("languageSelect");
+    if(select) select.value=lang;
+
+    const reverse=buildReverse(lang);
+
+    // Explicit data-i18n elements.
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key=el.getAttribute("data-i18n");
+      if(key) el.textContent=tr(lang,key);
+    });
+
+    translateNode(document.body,lang,reverse);
+
+    // Translate all option labels except the language selector itself.
+    document.querySelectorAll("select:not(#languageSelect) option").forEach(o=>{
+      const value=cleanText(o.textContent);
+      const key=reverse[value];
+      if(key) o.textContent=tr(lang,key);
+    });
+
+    // Keep the developer credit unified: both names in ONE line and ONE color.
+    document.querySelectorAll(".footer").forEach(f=>{
+      let el=f.querySelector("[data-i18n='footer']");
+      if(!el){
+        el=f.querySelector("strong") || f;
+      }
+      el.textContent=tr(lang,"footer");
+      el.style.color="#0a9b32";
+      el.style.fontSize="12px";
+      el.style.fontWeight="bold";
+    });
+  };
+
+  window.changeLanguage = function(lang){
+    window.applyAllLanguages(lang);
+  };
+
+  document.addEventListener("DOMContentLoaded",()=>{
+    window.applyAllLanguages(localStorage.getItem("yazidiLanguage") || "ar");
+  });
+})();
+</script>
+
+</body>
+</html>
+<footer class="footer"><strong data-i18n="footer">Developed by Ezzat 73 &amp; Shahwan</strong></footer>
+
+<style>
+.footer {
+    text-align: center;
+    padding: 25px 10px 15px;
+    margin-top: 20px;
+    color: #0a9b32;
+    font-family: Arial, sans-serif;
+}
+
+.footer div {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.footer span {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #888;
+}
+</style>
